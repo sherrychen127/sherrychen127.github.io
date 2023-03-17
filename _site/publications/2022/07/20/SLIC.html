@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SLIC: Self-Supervised Learning with Iterative Clustering for Human Action Videos | Sherry Chen</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="SLIC: Self-Supervised Learning with Iterative Clustering for Human Action Videos" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="&lt;!– Self-supervised methods have significantly closed the gap with end-to-end supervised learning for image classification. In the case of human action videos, however, where both appearance and motion are significant factors of variation, this gap remains significant. One of the key reasons for this is that sampling pairs of similar video clips, a required step for many self-supervised contrastive learning methods, is currently done conservatively to avoid false positives. A typical assumption is that similar clips only occur temporally close within a single video, leading to insufficient examples of motion similarity. To mitigate this, we propose SLIC, a clustering-based self-supervised contrastive learning method for human action videos. Our key contribution is that we improve upon the traditional intra-video positive sampling by using iterative clustering to group similar video instances. This enables our method to leverage pseudo-labels from the cluster assignments to sample harder positives and negatives. SLIC outperforms state-of-the-art video retrieval baselines by +15.4% on top-1 recall on UCF101 and by +5.7% when directly transferred to HMDB51. With end-to-end finetuning for action classification, SLIC achieves 83.2% top-1 accuracy (+0.8%) on UCF101 and 54.5% on HMDB51 (+1.6%). SLIC is also competitive with the state-of-the-art in action classification after self-supervised pretraining on Kinetics400." />
+<meta property="og:description" content="&lt;!– Self-supervised methods have significantly closed the gap with end-to-end supervised learning for image classification. In the case of human action videos, however, where both appearance and motion are significant factors of variation, this gap remains significant. One of the key reasons for this is that sampling pairs of similar video clips, a required step for many self-supervised contrastive learning methods, is currently done conservatively to avoid false positives. A typical assumption is that similar clips only occur temporally close within a single video, leading to insufficient examples of motion similarity. To mitigate this, we propose SLIC, a clustering-based self-supervised contrastive learning method for human action videos. Our key contribution is that we improve upon the traditional intra-video positive sampling by using iterative clustering to group similar video instances. This enables our method to leverage pseudo-labels from the cluster assignments to sample harder positives and negatives. SLIC outperforms state-of-the-art video retrieval baselines by +15.4% on top-1 recall on UCF101 and by +5.7% when directly transferred to HMDB51. With end-to-end finetuning for action classification, SLIC achieves 83.2% top-1 accuracy (+0.8%) on UCF101 and 54.5% on HMDB51 (+1.6%). SLIC is also competitive with the state-of-the-art in action classification after self-supervised pretraining on Kinetics400." />
+<link rel="canonical" href="http://localhost:4000/publications/2022/07/20/SLIC.html" />
+<meta property="og:url" content="http://localhost:4000/publications/2022/07/20/SLIC.html" />
+<meta property="og:site_name" content="Sherry Chen" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-20T00:00:00-04:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"SLIC: Self-Supervised Learning with Iterative Clustering for Human Action Videos","dateModified":"2022-07-20T00:00:00-04:00","datePublished":"2022-07-20T00:00:00-04:00","url":"http://localhost:4000/publications/2022/07/20/SLIC.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/publications/2022/07/20/SLIC.html"},"description":"&lt;!– Self-supervised methods have significantly closed the gap with end-to-end supervised learning for image classification. In the case of human action videos, however, where both appearance and motion are significant factors of variation, this gap remains significant. One of the key reasons for this is that sampling pairs of similar video clips, a required step for many self-supervised contrastive learning methods, is currently done conservatively to avoid false positives. A typical assumption is that similar clips only occur temporally close within a single video, leading to insufficient examples of motion similarity. To mitigate this, we propose SLIC, a clustering-based self-supervised contrastive learning method for human action videos. Our key contribution is that we improve upon the traditional intra-video positive sampling by using iterative clustering to group similar video instances. This enables our method to leverage pseudo-labels from the cluster assignments to sample harder positives and negatives. SLIC outperforms state-of-the-art video retrieval baselines by +15.4% on top-1 recall on UCF101 and by +5.7% when directly transferred to HMDB51. With end-to-end finetuning for action classification, SLIC achieves 83.2% top-1 accuracy (+0.8%) on UCF101 and 54.5% on HMDB51 (+1.6%). SLIC is also competitive with the state-of-the-art in action classification after self-supervised pretraining on Kinetics400.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Sherry Chen" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Sherry Chen</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/posts/">Past Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SLIC: Self-Supervised Learning with Iterative Clustering for Human Action Videos</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-07-20T00:00:00-04:00" itemprop="datePublished">Jul 20, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!-- Self-supervised methods have significantly closed the gap with end-to-end supervised learning for image classification. In the case of human action videos, however, where both appearance and motion are significant factors of variation, this gap remains significant. One of the key reasons for this is that sampling pairs of similar video clips, a required step for many self-supervised contrastive learning methods, is currently done conservatively to avoid false positives. A typical assumption is that similar clips only occur temporally close within a single video, leading to insufficient examples of motion similarity. To mitigate this, we propose SLIC, a clustering-based self-supervised contrastive learning method for human action videos. Our key contribution is that we improve upon the traditional intra-video positive sampling by using iterative clustering to group similar video instances. This enables our method to leverage pseudo-labels from the cluster assignments to sample harder positives and negatives. SLIC outperforms state-of-the-art video retrieval baselines by +15.4% on top-1 recall on UCF101 and by +5.7% when directly transferred to HMDB51. With end-to-end finetuning for action classification, SLIC achieves 83.2% top-1 accuracy (+0.8%) on UCF101 and 54.5% on HMDB51 (+1.6%). SLIC is also competitive with the state-of-the-art in action classification after self-supervised pretraining on Kinetics400.
+
+
+ -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:site_name" content="Learning To Search in Task and Motion Planning with Streams" />
+    <meta property="og:title" content="Learning To Search in Task and Motion Planning with Streams" />
+    <meta property="og:description" content="Learning to predict the relevance of optimistic quantities in a Task and Motion Planning Problem." />
+    <meta property="og:url" content="https://rvl.cs.toronto.edu/slic" />
+    <meta property="og:image" content="https://rvl.cs.toronto.edu/learning-based-tamp/teaser.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Learning To Search in Task and Motion Planning with Streams" />
+    <meta name="twitter:description" content="Learning to predict the relevance of optimistic quantities in a Task and Motion Planning Problem." />
+    <meta name="twitter:creator" content="@eric_heiden" />
+    <meta name="twitter:url" content="https://rvl.cs.toronto.edu/learning-based-tamp" />
+    <meta name="twitter:image:src" content="https://rvl.cs.toronto.edu/learning-based-tamp/teaser.jpg" />
+    <!-- <meta name="description"
+        content="Learning to predict the relevance of optimistic quantities in a Task and Motion Planning Problem."> -->
+    <meta name="author" content="Salar Hosseini, Yuxuan Chen, Florian Shkurti" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+    <link rel="icon" type="image/png" href="https://rvl.cs.toronto.edu/learning-based-tamp/favicon.ico" />
+    <link rel="icon" type="image/png" href="https://rvl.cs.toronto.edu/learning-based-tamp/favicon.ico" />
+    <style>
+        div.authors p:first-of-type {
+            font-size: 1.4em;
+        }
+
+        div.authors p {
+            text-align: center;
+        }
+
+        div.affiliations p {
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            margin: 1em 0;
+            text-align: center;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        #video {
+            text-align: center;
+        }
+
+        div.container {
+            padding-top: 60px;
+        }
+
+        .navbar {
+            padding: 0.4em 2em;
+        }
+
+        #abstract p {
+            text-align: justify;
+        }
+
+        #results .label {
+            margin-top: 1em;
+            margin-bottom: 0.3em;
+            font-weight: bold;
+        }
+
+        #results h3,
+        #results h5 {
+            margin-top: 2em;
+        }
+
+        .btn {
+            width: 75%;
+        }
+
+        .actions .col {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end position-relative" id="navbarToggle">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" target="_self">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#abstract" target="_self">Abstract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#video" target="_self">Video</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#results" target="_self">Results</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- <h1>Learning to Search in Task and Motion Planning with Streams</h1> -->
+        <div class="row authors">
+            <div class="col">
+                <p>
+                    <a href="https://salarios77.github.io/">Salar Hosseini Khorasgani</a><sup>*</sup>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    <a href="https://sherrychen127.github.io">Yuxuan Chen</a><sup>*</sup>
+                </p>
+            </div>
+            <div class="col">
+                <p>
+                    <a href="https://www.cs.toronto.edu/~florian/">Florian Shkurti</a>
+                </p>
+            </div>
+        </div>
+        <div class="row affiliations">
+            <div class="col">
+                <p><sup>*</sup>Equal Contributions</p>
+                <p><sup>1</sup>University of Toronto Robotics Institute</p>
+            </div>
+            <!-- <div class="col">
+                <p><sup>2</sup></p> -->
+            <h2>Abstract</h2>
+            pervised methods have significantly closed the gap with end-to-end supervised learning for image classification. In the case of human action videos, however, where both appearance and motion are significant factors of variation, this gap remains significant. One of the key reasons for this is that sampling pairs of similar video clips, a required step for many self-supervised contrastive learning methods, is currently done conservatively to avoid false positives. A typical assumption is that similar clips only occur temporally close within a single video, leading to insufficient examples of motion similarity. To mitigate this, we propose SLIC, a clustering-based self-supervised contrastive learning method for human action videos. Our key contribution is that we improve upon the traditional intra-video positive sampling by using iterative clustering to group similar video instances. This enables our method to leverage pseudo-labels from the cluster assignments to sample harder positives and negatives. SLIC outperforms state-of-the-art video retrieval baselines by +15.4% on top-1 recall on UCF101 and by +5.7% when directly transferred to HMDB51. With end-to-end finetuning for action classification, SLIC achieves 83.2% top-1 accuracy (+0.8%) on UCF101 and 54.5% on HMDB51 (+1.6%). SLIC is also competitive with the state-of-the-art in action classification after self-supervised pretraining on Kinetics400.
+        </div>
+    <div class="container" id="abstract">
+        <div class="row actions">
+            <div class="col"><a href="https://openaccess.thecvf.com/content/CVPR2022/html/Khorasgani_SLIC_Self-Supervised_Learning_With_Iterative_Clustering_for_Human_Action_Videos_CVPR_2022_paper.html" target="_blank" class="btn btn-primary ">Paper</a></div>
+            <div class="col"><a href="https://github.com/rvl-lab-utoronto/video_similarity_search" class="btn btn-primary col">Code</a></div>
+            <div class="col"><a href="#" data-bs-toggle="modal" data-bs-target="#citationModal" class="btn btn-primary col">Citation</a></div>
+        </div>
+    </div>
+    <div class="modal fade" id="citationModal" tabindex="-1" role="dialog" aria-labelledby="citationModalTitle">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="citationModalLongTitle">Citation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <pre>
+@InProceedings{Khorasgani_2022_CVPR,
+            author    = {Khorasgani, Salar Hosseini and Chen, Yuxuan and Shkurti, Florian},
+            title     = {SLIC: Self-Supervised Learning With Iterative Clustering for Human Action Videos},
+            booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+            month     = {June},
+            year      = {2022},
+            pages     = {16091-16101}
+        }
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="video">
+        <h2>Video</h2>
+        <div class="row justify-content-md-center">
+            <div class="ratio ratio-16x9 w-75">
+                <iframe src="https://www.youtube.com/embed/c6fsZtD7mNg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</div></body>
+
+  </div><a class="u-url" href="/publications/2022/07/20/SLIC.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Sherry Chen</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Sherry Chen</li><li><a class="u-email" href="mailto:yuxuansherry.chen@mail.utoronto.ca">yuxuansherry.chen@mail.utoronto.ca</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/sherrychen127"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">sherrychen127</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

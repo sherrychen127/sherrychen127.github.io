@@ -1,6 +1,6 @@
 ---
-title: "Sherry Yuxuan Chen"
-permalink: /
+# title: ""
+# permalink: /
 layout: page
 ---
 
@@ -45,14 +45,14 @@ My current research interests are in Machine Learning and Computer Vision, parti
                 <img src="images/UofTlogo.png" alt="clean-usnob" width="140" height="180">
             </td>
             <td width="75%" valign="middle">
-                <papertitle>MASc. in Aerospace Engineering</papertitle>
-                <br> University of Toronto institute for Aerospace Studies
+                <papertitle>MASc. in <b>Aerospace Engineering</b></papertitle>
+                <br> <b>University of Toronto institute for Aerospace Studies</b>
                 <br> Expected June 2023
                 <br> <em>cGPA: 4.0/4.0</em>
                 <br><br>
                 <br>
-                <papertitle>B.A.Sc in Engineering Science with Honour <br> Major in Robotics Engineering, Minor in Artificial Intelligence</papertitle>
-                <br> Faculty of Applied Science and Engineering, University of Toronto
+                <papertitle>B.A.Sc in <b>Engineering Science</b> with Honour <br> Major in <b>Robotics</b> Engineering, Minor in Artificial Intelligence</papertitle>
+                <br> <b>Faculty of Applied Science and Engineering, University of Toronto </b>
                 <br> Sept 2016 - May 2021
                 <br> <em>major GPA: 3.92/4.0, cumulative GPA: 3.72/4.0</em>
                 <br>
@@ -68,7 +68,7 @@ My current research interests are in Machine Learning and Computer Vision, parti
 
 - __Y. Chen\*__, S. H. Khorasgani\*, and F. Shkurti, “SLIC: Self-supervised learning with iterative clustering for
 human action videos,” in *2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition*, 2022, pp. 16 070–16 080, (**CVPR Oral&nbsp;2022**)
-(\* *joint first author*) [\[pdf\]](https://ieeexplore.ieee.org/document/9879935)
+(\* *joint first author*) [\[pdf\]](https://ieeexplore.ieee.org/document/9879935) [\[code\]](https://github.com/rvl-lab-utoronto/video_similarity_search) [\[poster\]](data/CVPR_2022_Poster.pdf) [\[video\]](https://youtu.be/c6fsZtD7mNg)
 
 <!-- 
 
