@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Projects | Sherry Chen</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Projects" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/projects/" />
+<meta property="og:url" content="http://localhost:4000/projects/" />
+<meta property="og:site_name" content="Sherry Chen" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"Projects","url":"http://localhost:4000/projects/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Sherry Chen" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Sherry Chen</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/experience/">Work Experience</a><a class="page-link" href="/projects/">Projects</a><a class="page-link" href="/posts/">Publications</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Projects</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="analyzing-the-effectiveness-of-k-fac-on-training-mlp-mixers-for-image-classification">Analyzing the Effectiveness of K-FAC on Training MLP-Mixers for Image Classification</h2>
+<p>University of Toronto, CSC2541 Neural Network Training Dynamics (Winter 2022)</p>
+
+<p>K-FAC is an approximate second order optimization method that has been shown to speed up training convergence while achieving competitive performance when training logistic autoencoders, convolutional networks, and RNNs. Here, we apply K-FAC to the MLP-Mixer architecture, and demonstrate that (without pretraining) K-FAC outperforms SGD and Adam when performing CIFAR-100 image classification and when handling large input sizes on CIFAR-10. Additionally, we perform learning rate grafting to confirm that the implicit learning rate schedule is the primary factor dictating classification performance.</p>
+
+<p><a href="/data/CSC2541_Project_Analyzing_KFAC_on_MLP_Mixer.pdf">[Project Report]</a> <a href="https://github.com/Salarios77/kfac-mlp-mixer">[Code]</a>
+<br />
+<br />
+<br /></p>
+
+<hr />
+<h2 id="rescapsnet-detection-of-covid-19-from-chest-x-ray-images-using-resnet-and-capsule-network">ResCapsNet: Detection of COVID-19 from Chest X-Ray Images Using ResNet and Capsule Network</h2>
+<p>University of Toronto, CSC413 Neural Networks and Deep Learning (Winter 2021)</p>
+<center><img src="/images/ResCapNet.png" align="center" width="100%" /></center>
+
+<p>The coronavirus disease (COVID-19) is spreading rapidly and has drastically af-
+fecting the health of people over 200 countries. COVID-19 is spreading fast;
+therefore; a critical step in controlling the epidemic curve is its early detection.
+While current diagnosis tests in clinics and hospitals require specific requirements,
+it has been shown that COVID-19 affects the lungs of patients and displays the
+symptoms of pneumonia, where can be diagnosed from Computed Tomography
+(CT) scans and X-ray images. It, therefore, necessities the need for detection
+of COVID from other lung diseases. Deep learning-based algorithms especially
+Convolutional Neural Networks (CNNs) are among the most interested methods in
+this regards. However, CNNs-based frameworks suffer from being unable to find
+the spatial relations between image instances and the need for a large number of
+data requirement, which is unavailable due to sudden emergence of COVID-19. To
+tackle the mentioned problems of CNNs, this paper proposes a Capsule Network-
+based framework, referred to as ResCapsNet, which uses capsule networks as
+the main body and ResNet50 for feature extraction. The proposed ResCapsNet
+framework has been performed on a dataset of X-ray images and an accuracy
+of 98%, sensitivity of 98.07%, specificity of 99.15%, and area under the curve
+of 99% were resulted. The achieved results demonstrate the advantage of the
+proposed method in comparison to CNN-based framework proposed in [2] and
+capsule network-based COVID-CAPS framework proposed in [ 3]. In order to
+further improve the performance of ResCapsNet, we applied the proposed ResCap-
+sNet framework on the augmented data and accuracy of 98.9% and sensitivity
+of 98.99% , and specificity of 98.30% were achieved.</p>
+
+<p><a href="data/CSC413_final_report.pdf">[Project Report]</a> <a href="https://github.com/sherrychen127/CSC413_project.git">[code]</a></p>
+
+<p><br />
+<br />
+<br /></p>
+
+<hr />
+
+<h2 id="real-time-face-mask-detector-using-a-faster-rcnn-architecture">Real-Time Face Mask Detector using a Faster-RCNN Architecture</h2>
+<p>University of Toronto, APS360 Applied Fundamentals of Machine Learning (Fall 2020)</p>
+
+<center><img src="/images/FaceMaskDetector.png" align="center" width="50%" /></center>
+<p><br />
+<br /></p>
+
+<p>Fast (~14 fps) face mask detector which accurately identifies bounding boxes of faces and labels whether a mask is worn (correctly) or not worn using a Faster-RCNN (with FPN backbone) architecture. Achieves 85% mAP@0.5 on a kaggle face mask detection dataset.</p>
+
+<p><a href="data/final_report_aps360.pdf">[Project Report]</a> <a href="https://github.com/Salarios77/face_mask_detector">[Code]</a>
+<br />
+<br />
+<br /></p>
+
+<hr />
+
+<h2 id="aupackto-autonomous-hardware-packing-machine">AuPackto: Autonomous Hardware Packing Machine</h2>
+<p>University of Toronto, AER201H  Engineering Design  (Winter 2018)</p>
+
+<center><img src="/images/AuPackto.png" align="center" width="50%" /></center>
+
+<p>Aupackto is designed to autonomously package four types of fasteners in AER201 design course. Our team consists of three people, where each member is responsible for one of the following three subsyetems: Circuits, Electro-mechanics, and Microcontroller. As a Microcontroller member, I was responsible for programming on the PIC and Arduino to interface with various sensors and carry out the overall software logic.</p>
+
+<p><a href="/data/AER201_FinalReport.pdf">[Project Report]</a> <a href="https://github.com/sherrychen127/AER201_HardwarePackagingMachine">[Code]</a></p>
+
+<p><br />
+<br />
+<br /></p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Sherry Chen</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Sherry Chen</li><li><a class="u-email" href="mailto:yuxuansherry.chen@mail.utoronto.ca">yuxuansherry.chen@mail.utoronto.ca</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/sherrychen127"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">sherrychen127</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
